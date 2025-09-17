@@ -9,6 +9,18 @@ const getHomePage = async (req, res) => {
   }
 };
 
+const getProductFormPage = (req, res) => {
+  res.render("addProduct");
+};
+
+const getUpdateProductPage = async (req, res) => {
+  const id = req.params.id;
+  const product = await Product.findById(id);
+  res.render("updateProduct", { product });
+};
+
 module.exports = {
   getHomePage,
+  getProductFormPage,
+  getUpdateProductPage,
 };

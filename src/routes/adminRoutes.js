@@ -12,7 +12,9 @@ router.post("/products", Upload.single("image"), ProductController.create);
 router.put("/products/:id", Upload.single("image"), ProductController.update);
 router.delete("/products/:id", ProductController.deleteOne);
 
-router.use("/dashboard", DashboardController.getHomePage);
+router.get("/dashboard", DashboardController.getHomePage);
+router.get("/product", DashboardController.getProductFormPage);
+router.get("/product/:id", DashboardController.getUpdateProductPage);
 
 router.post("/register", AuthController.register);
 
