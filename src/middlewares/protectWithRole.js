@@ -11,9 +11,7 @@ const protectWithRole = (...allowedRoles) => {
     }
 
     if (!token) {
-      return res
-        .status(401)
-        .json({ message: "No token, authorization denied" });
+      return res.redirect("/login");
     }
 
     try {
@@ -22,9 +20,7 @@ const protectWithRole = (...allowedRoles) => {
       req.user = decoded;
 
       if (!allowedRoles.includes(req.user.role)) {
-        return res
-          .status(403)
-          .json({ message: "Access Denied", code: "UNAUTHORIZED_ACTION" });
+        return res.redirect("/login");
       }
 
       next();
