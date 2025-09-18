@@ -15,7 +15,7 @@ const create = async (req, res) => {
       image,
     });
 
-    res.status(201).json(product);
+    res.redirect("/dashboard");
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
