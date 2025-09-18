@@ -34,6 +34,7 @@ store/
 │   │   └── upload.js
 │   ├── models/
 │   │   └── product.js
+|   |   └── user.js
 │   ├── routes/
 │   │   ├── adminRoutes.js
 │   │   ├── authRoutes.js
@@ -42,11 +43,12 @@ store/
 │   │   ├── css/
 │   │   ├── js/
 │   │   └── plugins/
+|   |   └── dashboard/
 │   ├── views/
 │   │   ├── home.ejs
-│   │   ├── products.ejs
-│   │   ├── editProduct.ejs
 │   │   ├── addProduct.ejs
+│   │   ├── dashboard.ejs
+│   │   ├── updateProduct.ejs
 │   │   └── login.ejs
 │   ├── config/
 │   │   └── db.js
