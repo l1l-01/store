@@ -10,7 +10,7 @@ It includes:
 - Landing page
 - Basic file upload
 
-## Register a new user (required to create the first admin account for dashboard access, you can use http://localhost:5000/auth/register endpoint)
+## Register a new user (required to create the first admin account for dashboard access, you can use http://localhost:5000/admin/register endpoint)
 
 
 ## Tech Stack
