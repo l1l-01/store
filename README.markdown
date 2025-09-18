@@ -150,5 +150,5 @@ store/
 
 
 ## Notes
-- Built in less than24 hours as a rapid prototype.
+- Built in less than 24 hours as a rapid prototype.
 > ⚠ **Important:** This project is **not intended for production**. It’s a demo/prototype for portfolio and assessment purposes. Do not deploy it in a live environment.
