@@ -133,6 +133,7 @@ store/
 - **cookie-parser**: Cookie parsing
 - **dotenv**: Environment variables
 - **fs**, **path**: File system operations
+- **nodemon**: Development server
 
 # Dependencies
 - **express**
