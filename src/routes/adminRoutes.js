@@ -6,15 +6,17 @@ const Upload = require("../middlewares/upload");
 const DashboardController = require("../controllers/dashboardController");
 const ProtectWithRole = require("../middlewares/protectWithRole");
 
-router.get("/products", ProductController.getAll);
-router.get("/products/:id", ProductController.getOne);
+router.get("/products", ProtectWithRole("admin"), ProductController.getAll);
+router.get("/products/:id", ProtectWithRole("admin"), ProductController.getOne);
 router.post(
   "/products/create",
+  ProtectWithRole("admin"),
   Upload.single("image"),
   ProductController.create,
 );
 router.put(
   "/products/update/:id",
+  ProtectWithRole("admin"),
   Upload.single("image"),
   ProductController.update,
 );

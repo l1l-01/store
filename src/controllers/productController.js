@@ -47,7 +47,6 @@ const update = async (req, res) => {
 const deleteOne = async (req, res) => {
   try {
     const { id } = req.params;
-
     const product = await Product.findByIdAndDelete(id);
 
     if (!product) return res.status(404).json({ message: "Product not found" });
@@ -56,15 +55,15 @@ const deleteOne = async (req, res) => {
     if (product.image) {
       const imagePath = path.join(
         __dirname,
-        "../uploads/images",
+        "../../uploads/images",
         product.image,
-      );
+      ); // Adjust path
       fs.unlink(imagePath, (err) => {
         if (err) console.error("Failed to delete image:", err);
       });
     }
 
-    res.redirect("/admin/products");
+    res.redirect("/admin/dashboard");
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
