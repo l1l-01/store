@@ -3,19 +3,21 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const login = async (req, res) => {
+  if (!req.body.email || !req.body.password) {
+    return res.redirect("/auth/login");
+  }
   const { email, password } = req.body;
 
   try {
     const user = await User.findOne({ email });
 
-    // Always respond with a generic message
     if (!user) {
-      return res.status(400).json({ message: "Invalid email or password" });
+      return res.redirect("/auth/login");
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ message: `Invalid email or password` });
+      return res.redirect("/auth/login");
     }
     const token = jwt.sign(
       { id: user._id, role: user.role },
@@ -35,9 +37,7 @@ const login = async (req, res) => {
       maxAge: 120 * 60 * 1000,
     });
 
-    res.status(200).json({
-      message: "Login successful",
-    });
+    res.redirect("/admin/dashboard");
   } catch (error) {
     res.status(500).json({ message: `Error logging user: ${error.message}` });
   }
@@ -68,11 +68,16 @@ const register = async (req, res) => {
 
 const logout = (req, res) => {
   res.clearCookie("token");
-  res.status(200).json({ message: "Logout successful" });
+  res.redirect("/auth/login");
+};
+
+const getLoginPage = async (req, res) => {
+  res.render("login");
 };
 
 module.exports = {
   login,
   register,
   logout,
+  getLoginPage,
 };

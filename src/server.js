@@ -16,6 +16,8 @@ const app = express();
 
 // Parsing req.body
 app.use(express.json());
+// Parsing form data
+app.use(express.urlencoded({ extended: true }));
 
 // Parsing cookies
 app.use(cookieParser());

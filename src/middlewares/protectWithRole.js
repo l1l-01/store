@@ -11,7 +11,7 @@ const protectWithRole = (...allowedRoles) => {
     }
 
     if (!token) {
-      return res.redirect("/login");
+      return res.redirect("/auth/login");
     }
 
     try {

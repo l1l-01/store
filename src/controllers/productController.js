@@ -15,7 +15,7 @@ const create = async (req, res) => {
       image,
     });
 
-    res.redirect("/dashboard");
+    res.redirect("/admin/dashboard");
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -38,7 +38,7 @@ const update = async (req, res) => {
     if (!updatedProduct)
       return res.status(404).json({ message: "Product not found" });
 
-    res.json(updatedProduct);
+    res.redirect("/admin/dashboard");
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -64,7 +64,7 @@ const deleteOne = async (req, res) => {
       });
     }
 
-    res.json({ message: "Product deleted successfully" });
+    res.redirect("/admin/products");
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -88,7 +88,7 @@ const getOne = async (req, res) => {
 const getAll = async (req, res) => {
   try {
     const products = await Product.find();
-    res.render("index", { products });
+    res.render("home", { products });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
