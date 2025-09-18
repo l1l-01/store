@@ -2,9 +2,6 @@
 
 ![Project Screenshot](./Home.png)
 
-This is a **demo store CRUD application** created as an assessment project for a job application.
-It includes:
-
 ## Overview
 This is a **demo store CRUD application** created as an assessment project for a job application.
 It includes:
