@@ -135,18 +135,6 @@ store/
 - **fs**, **path**: File system operations
 - **nodemon**: Development server
 
-# Dependencies
-- **express**
-- **ejs**
-- **mongoose**
-- **jsonwebtoken**
-- **bcrypt**
-- **multer**
-- **method-override**
-- **cookie-parser**
-- **dotenv**
-- **fs**, **path**
-
 
 
 ## Notes
